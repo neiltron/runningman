@@ -1,0 +1,19 @@
+%w(
+  rubygems bundler/setup grape json date uri mongoid boxer
+).each do |lib|
+  require lib
+end
+
+module Runningman
+  class API < Grape::API
+    version '1'
+    prefix 'api'
+
+    format :json
+    content_type :txt, 'text/plain'
+
+    get do
+      200
+    end
+  end
+end

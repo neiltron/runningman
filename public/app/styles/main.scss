@@ -1,0 +1,9 @@
+// bower:scss
+@import "bourbon";
+@import "base";
+@import "neat";
+// endbower
+
+body {
+    @include outer-container;
+}

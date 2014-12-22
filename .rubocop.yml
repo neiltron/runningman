@@ -1,0 +1,12 @@
+AllCops:
+  Exclude:
+    - 'public/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/RegexpLiteral:
+  MaxSlashes: 0

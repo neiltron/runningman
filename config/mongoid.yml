@@ -1,0 +1,19 @@
+development:
+  sessions:
+    default:
+      hosts:
+        - 0.0.0.0:27017
+      database: runningman_dev
+      options:
+        skip_version_check: true
+        safe: true
+
+test:
+  sessions:
+    default:
+      hosts:
+        - 0.0.0.0:27017
+      database: runningman_test
+      options:
+        skip_version_check: true
+        safe: true
