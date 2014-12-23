@@ -4,6 +4,10 @@
   require lib
 end
 
+%w( users entries ).each do |api|
+  require_relative api
+end
+
 module Runningman
   class API < Grape::API
     version '1'
