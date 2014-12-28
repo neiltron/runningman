@@ -36,7 +36,7 @@ describe Runningman::API do
       resp = JSON.parse(last_response.body)
 
       expect(last_response.status).to eq(201)
-      expect(resp['accesskey']).to_not be_nil
+      expect(resp['authentication_token']).to_not be_nil
     end
   end
 end

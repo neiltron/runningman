@@ -12,7 +12,15 @@ module Runningman
       end
 
       post :signin do
-        201
+        user = User.where(email: params[:email]).first
+
+        401 if user.nil?
+
+        if user && user.authenticated?(params[:password])
+          user
+        else
+          401
+        end
       end
     end
   end

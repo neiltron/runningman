@@ -4,7 +4,7 @@
   require lib
 end
 
-%w( users entries ).each do |api|
+%w( helpers users entries ).each do |api|
   require_relative api
 end
 
