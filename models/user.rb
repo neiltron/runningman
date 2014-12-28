@@ -8,6 +8,8 @@ class User
   field :password_salt
   field :authentication_token
 
+  has_many :entries
+
   validates :email,
             presence: true,
             uniqueness: true,
@@ -39,13 +41,28 @@ class User
     User.set_callback(:save, :after, :encrypt_pass)
   end
 
+  def get_entries(opts)
+    # end date defaults to 'now' if no end date is specified
+    # start date default to 2 weeks before the end date
+    ends = Time.parse(opts[:ends] || Time.now.to_s)
+    starts = opts[:starts].nil? ? ends - 1_209_600 : Time.parse(opts[:starts])
+    res = entries.where(:date.gte => starts, :date.lte => ends)
+
+    {
+      total: res.count,
+      starts: starts,
+      ends: ends,
+      entries: res
+    }
+  end
+
   protected
 
   def salt
     if password_salt.nil? || password_salt.empty?
       update_without_save_callback do
         time = Time.now.utc
-        secret    = Digest::SHA1.hexdigest("--#{time}--")
+        secret = Digest::SHA1.hexdigest("--#{time}--")
         self.password_salt = Digest::SHA1.hexdigest("--#{time}--#{secret}--")
         save
       end

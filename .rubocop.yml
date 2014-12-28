@@ -10,3 +10,6 @@ Style/Lambda:
 
 Style/RegexpLiteral:
   MaxSlashes: 0
+
+Metrics/LineLength:
+  Max: 90
