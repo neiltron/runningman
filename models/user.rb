@@ -41,6 +41,8 @@ class User
     User.set_callback(:save, :after, :encrypt_pass)
   end
 
+  # fetches a user's entries. takes start/end dates as arguments
+  # and returns a hash containing start date, end date, and array of entries
   def get_entries(opts)
     # end date defaults to 'now' if no end date is specified
     # start date default to 2 weeks before the end date
@@ -49,7 +51,6 @@ class User
     res = entries.where(:date.gte => starts, :date.lte => ends)
 
     {
-      total: res.count,
       starts: starts,
       ends: ends,
       entries: res
