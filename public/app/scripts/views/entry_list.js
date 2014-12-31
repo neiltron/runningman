@@ -11,6 +11,7 @@ define([
 
     var EntryListView = Backbone.View.extend({
         template: JST['app/scripts/templates/entry_list.ejs'],
+        emptyTemplate: JST['app/scripts/templates/entry_list_empty.ejs'],
 
         tagName: 'section',
 
@@ -27,7 +28,11 @@ define([
         },
 
         render: function () {
-            this.$el.html(this.template({ entries: this.collection.toJSON() }));
+            if (this.collection.length) {
+                this.$el.html(this.template({ entries: this.collection.toJSON() }));
+            } else {
+                this.$el.html(this.emptyTemplate());
+            }
 
             return this;
         }
