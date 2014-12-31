@@ -14,12 +14,12 @@ module Runningman
       post :signin do
         user = User.where(email: params[:email]).first
 
-        401 if user.nil?
+        error!('Error logging in', 401) if user.nil?
 
         if user && user.authenticated?(params[:password])
           user
         else
-          401
+          error!('Error logging in', 401)
         end
       end
     end
