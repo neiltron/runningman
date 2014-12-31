@@ -6,7 +6,17 @@
 
 @import "login";
 @import "alerts";
+@import "navbar";
 
 body {
-    @include outer-container;
+    padding: 0;
+    margin: 0;
+}
+
+#content {
+  @include outer-container;
+}
+
+body.is-logged-in #content {
+  padding: 1em;
 }

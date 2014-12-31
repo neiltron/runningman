@@ -24,13 +24,17 @@ define([
             'entries':  'showEntryView',
             'login':    'showLoginView',
             'register': 'showRegisterView',
-            '*path':    'showLoginView'
+            '*path':    'showEntryView'
         },
 
         toggleAuthenticated: function () {
-            var view = User.get('authorized') ? 'entries' : 'login';
-
-            Backbone.history.navigate(view, true);
+            if (User.get('authorized')) {
+                Backbone.history.navigate('entries', true);
+                $('body').addClass('is-logged-in');
+            } else {
+                Backbone.history.navigate('login', true);
+                $('body').removeClass('is-logged-in');
+            }
         },
 
         showLoginView: function () {
