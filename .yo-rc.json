@@ -1,6 +1,6 @@
 {
   "generator-backbone": {
-    "appPath": "app",
+    "appPath": "public/app",
     "appName": "Runningman",
     "coffee": false,
     "testFramework": "mocha",

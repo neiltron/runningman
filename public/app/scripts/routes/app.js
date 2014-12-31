@@ -4,20 +4,50 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'models/user',
+    'views/login',
+    'views/register',
     'views/entry_list'
-], function ($, _, Backbone, EntryListView) {
+], function ($, _, Backbone, User, LoginView, RegisterView, EntryListView) {
     'use strict';
 
     var AppRouter = Backbone.Router.extend({
         initialize: function () {
+            window.root_url = 'http://localhost:9001';
+
             this.containerView = $('#content');
+
+            this.listenTo(User, 'change:authorized', this.toggleAuthenticated);
         },
 
         routes: {
-            '*path':  'showEntryView'
+            'entries':  'showEntryView',
+            'login':    'showLoginView',
+            'register': 'showRegisterView',
+            '*path':    'showLoginView'
+        },
+
+        toggleAuthenticated: function () {
+            var view = User.get('authorized') ? 'entries' : 'login';
+
+            Backbone.history.navigate(view, true);
+        },
+
+        showLoginView: function () {
+            this.showView(LoginView);
+        },
+
+        showRegisterView: function () {
+            this.showView(RegisterView);
         },
 
         showEntryView: function () {
+            if (!User.get('authorized')) {
+                this.toggleAuthenticated();
+
+                return false;
+            }
+
             this.showView(EntryListView);
         },
 
