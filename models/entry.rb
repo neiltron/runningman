@@ -4,7 +4,7 @@ class Entry
 
   field :distance, type: Float
   field :duration, type: Float
-  field :date, type: Time, default: Time.now.to_s
+  field :date, type: Time, default: -> { Time.now }
 
   belongs_to :user
 
