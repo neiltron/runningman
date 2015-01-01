@@ -5,10 +5,12 @@ define([
     'underscore',
     'backbone',
     'models/user',
+    'collections/entry',
     'views/login',
     'views/register',
-    'views/entry_list'
-], function ($, _, Backbone, User, LoginView, RegisterView, EntryListView) {
+    'views/entry_list',
+    'views/entry_form',
+], function ($, _, Backbone, User, Entries, LoginView, RegisterView, EntryListView, EntryFormView) {
     'use strict';
 
     var AppRouter = Backbone.Router.extend({
@@ -21,14 +23,17 @@ define([
         },
 
         routes: {
-            'entries':  'showEntryView',
-            'login':    'showLoginView',
-            'register': 'showRegisterView',
-            '*path':    'showEntryView'
+            'entries/new':  'showEntryForm',
+            'entries':      'showEntryView',
+            'login':        'showLoginView',
+            'register':     'showRegisterView',
+            '*path':        'showEntryView'
         },
 
         toggleAuthenticated: function () {
             if (User.get('authorized')) {
+                Entries.fetch({ reset: true });
+
                 Backbone.history.navigate('entries', true);
                 $('body').addClass('is-logged-in');
             } else {
@@ -45,10 +50,19 @@ define([
             this.showView(RegisterView);
         },
 
+        showEntryForm: function () {
+            if (!User.get('authorized')) {
+                this.toggleAuthenticated();
+                return false;
+            }
+
+            var view = new EntryFormView();
+            this.containerView.append(view.render().el);
+        },
+
         showEntryView: function () {
             if (!User.get('authorized')) {
                 this.toggleAuthenticated();
-
                 return false;
             }
 

@@ -2,12 +2,15 @@
 
 define([
     'underscore',
-    'backbone'
-], function (_, Backbone) {
+    'backbone',
+    'models/user'
+], function (_, Backbone, User) {
     'use strict';
 
     var EntryModel = Backbone.Model.extend({
-        url: '',
+        url: function () {
+            return window.root_url + '/api/1/entries?accesskey=' + User.get('accesskey');
+        },
 
         initialize: function() {
         },

@@ -1,0 +1,27 @@
+<div id='entry_form_overlay'></div>
+<form id='entry_form'>
+  <div class='flash'></div>
+
+  <p>
+    <label for='distance'>Distance (in miles)</label>
+    <input type='text' name='distance' id='distance' placeholder='0.0' />
+  </p>
+
+  <p>
+    <label for='duration'>Duration (in minutes)</label>
+    <input type='text' name='duration' id='duration' placeholder='0' />
+  </p>
+
+  <% var date = new Date(); %>
+
+  <p>
+    <label for='date'>Date</label>
+    <input type='text' name='date' id='date' placeholder='<%= date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() %>' />
+  </p>
+
+  <p>
+    <label></label>
+    <input type='submit' value='Create Entry' />
+    <a href='#cancel' class='cancel'>Cancel</a>
+  </p>
+</form>

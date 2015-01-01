@@ -11,7 +11,7 @@ define([
     var EntryView = Backbone.View.extend({
         template: JST['app/scripts/templates/entry.ejs'],
 
-        tagName: 'div',
+        tagName: 'tr',
 
         id: '',
 
@@ -25,6 +25,8 @@ define([
 
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
+
+            return this;
         }
     });
 

@@ -1,0 +1,51 @@
+#entry_form_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10000;
+
+  #entry_form_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+    background: #333;
+    z-index: 1001;
+  }
+
+  #entry_form {
+    @include span-columns(10);
+    @include shift(1);
+
+    margin-top: 8em;
+    padding: 1em 1em 0;
+    position: relative;
+    background: #fcfcfc;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px 1px rgba(20,20,20,.2);
+    z-index: 1002;
+
+    input[type='submit'], .cancel {
+      width: 100%;
+    }
+
+    .cancel {
+      padding: 0.75em 1em;
+      position: relative;
+      top: 2px;
+    }
+
+    @include media($medium-screen) {
+      @include span-columns(4);
+      @include shift(4);
+
+      input[type='submit'], .cancel {
+        width: initial;
+      }
+    }
+  }
+}
