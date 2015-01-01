@@ -11,7 +11,7 @@ module Runningman
         )
 
         # if no date is specified, entry model defaults to Time.now
-        entry.date = Time.parse(params[:date]) unless params[:date].nil?
+        entry.date = Time.parse(params[:date]) unless params[:date].blank?
 
         if entry.save
           entry
