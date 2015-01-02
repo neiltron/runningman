@@ -1,4 +1,10 @@
 <td><%= model.distance %></td>
 <td><%= model.duration %></td>
 <td><%= Math.round(parseFloat(model.duration, 10) / parseFloat(model.distance, 10) * 100) / 100 %></td>
-<td><%= date %></td>
+<td>
+  <span><%= date %></span>
+  <span>
+    <a href='#entries/<%= model.id %>/edit' class='edit'>Edit</a>
+    <a href='#entries/<%= model.id %>/delete' class='delete'>Delete</a>
+  </span>
+</td>

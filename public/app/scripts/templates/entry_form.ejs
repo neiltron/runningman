@@ -4,19 +4,19 @@
 
   <p>
     <label for='distance'>Distance (in miles)</label>
-    <input type='text' name='distance' id='distance' placeholder='0.0' />
+    <input type='text' name='distance' id='distance' placeholder='0.0' value='<%= model.distance %>' />
   </p>
 
   <p>
     <label for='duration'>Duration (in minutes)</label>
-    <input type='text' name='duration' id='duration' placeholder='0' />
+    <input type='text' name='duration' id='duration' placeholder='0' value='<%= model.duration %>' />
   </p>
 
-  <% var date = new Date(); %>
+  <% var pDate = new Date(); %>
 
   <p>
     <label for='date'>Date</label>
-    <input type='text' name='date' id='date' placeholder='<%= date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() %>' />
+    <input type='text' name='date' id='date' value='<%= date %>' placeholder='<%= pDate.getFullYear() + '/' + (pDate.getMonth() + 1) + '/' + pDate.getDate() %> 12:00:00' />
   </p>
 
   <p>

@@ -487,5 +487,11 @@ table#entry_list tr th:nth-child(2), table#entry_list tr th:nth-child(3), table#
   text-align: center; }
 table#entry_list tr th:last-child, table#entry_list tr td:last-child {
   text-align: right; }
+table#entry_list tr td:last-child span:last-child {
+  display: none; }
+table#entry_list tr:hover td:last-child span:first-child {
+  display: none; }
+table#entry_list tr:hover td:last-child span:last-child {
+  display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */

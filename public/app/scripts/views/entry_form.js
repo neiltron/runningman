@@ -24,8 +24,8 @@ define([
             'click .cancel': 'closeModal'
         },
 
-        initialize: function () {
-            this.model = new Entry();
+        initialize: function (opts) {
+            this.model = !opts.entryId ? new Entry() : Entries.get(opts.entryId);
         },
 
         closeModal: function (e) {
@@ -39,7 +39,8 @@ define([
             e.preventDefault();
 
             var formEl = this.$el.find('form'),
-                that = this;
+                that = this,
+                modelId = this.model.isNew() ? undefined : this.model.get('id');
 
             this.model.save({
                 distance: formEl.find('#distance').val(),
@@ -60,7 +61,7 @@ define([
         },
 
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template({ model: this.model.toJSON(), date: this.model.formatDate() }));
 
             return this;
         }

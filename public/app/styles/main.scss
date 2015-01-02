@@ -45,4 +45,26 @@ table#entry_list {
       text-align: right;
     }
   }
+
+  tr {
+    td:last-child {
+      span:last-child {
+        display: none;
+      }
+    }
+
+    &:hover {
+      td:last-child {
+        span {
+          &:first-child {
+            display: none;
+          }
+
+          &:last-child {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
 }

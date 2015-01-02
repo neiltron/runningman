@@ -23,11 +23,12 @@ define([
         },
 
         routes: {
-            'entries/new':  'showEntryForm',
-            'entries':      'showEntryView',
-            'login':        'showLoginView',
-            'register':     'showRegisterView',
-            '*path':        'showEntryView'
+            'entries/new':        'showEntryForm',
+            'entries/:id/edit':   'showEntryForm',
+            'entries':            'showEntryView',
+            'login':              'showLoginView',
+            'register':           'showRegisterView',
+            '*path':              'showEntryView'
         },
 
         toggleAuthenticated: function () {
@@ -50,13 +51,13 @@ define([
             this.showView(RegisterView);
         },
 
-        showEntryForm: function () {
+        showEntryForm: function (id) {
             if (!User.get('authorized')) {
                 this.toggleAuthenticated();
                 return false;
             }
 
-            var view = new EntryFormView();
+            var view = new EntryFormView({ entryId: id });
             this.containerView.append(view.render().el);
         },
 
