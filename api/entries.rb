@@ -34,12 +34,27 @@ module Runningman
         }
       end
 
-      delete ':id' do
-        entry = Entry.find(params[:id])
 
-        error!('401 Unauthorized', 401) unless entry.user == current_user
+      resource ':id' do
+        before { @entry = Entry.find(params[:id]) }
 
-        entry.delete
+        put do
+          error!('401 Unauthorized', 401) unless @entry.user == current_user
+
+          @entry.update_attributes(
+            distance: params[:distance],
+            duration: params[:duration],
+            date:     params[:date]
+          )
+
+          @entry
+        end
+
+        delete do
+          error!('401 Unauthorized', 401) unless @entry.user == current_user
+
+          @entry.delete
+        end
       end
     end
   end
