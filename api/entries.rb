@@ -34,7 +34,6 @@ module Runningman
         }
       end
 
-
       resource ':id' do
         before { @entry = Entry.find(params[:id]) }
 

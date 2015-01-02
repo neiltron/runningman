@@ -107,5 +107,18 @@ describe Runningman::API do
 
       expect(last_response.status).to eq(200)
     end
+
+    it 'can be edited by ID' do
+      entry = Entry.create!(user: @user, distance: '2.1', duration: '78')
+
+      put '/api/1/entries/' + entry.id.to_s,
+          distance: '2.2', duration: '78',
+          accesskey: @user.authentication_token
+
+      entry = Entry.find(entry.id)
+
+      expect(last_response.status).to eq(200)
+      expect(entry.distance).to eq(2.2)
+    end
   end
 end
