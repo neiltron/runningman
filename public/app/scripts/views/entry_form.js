@@ -32,7 +32,8 @@ define([
             if (typeof e !== 'undefined') { e.preventDefault(); }
 
             this.undelegateEvents();
-            window.history.back();
+            this.$el.remove();
+            Backbone.history.navigate('#entries', { trigger: false, replace: true })
         },
 
         saveEntry: function (e) {

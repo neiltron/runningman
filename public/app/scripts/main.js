@@ -19,9 +19,13 @@ require([
     // cleanup and prevent zombie views
     Backbone.View.prototype.close = function () {
         this.trigger('close');
-        this.remove();
         this.unbind();
         this.undelegateEvents();
+
+        this.remove();
+
+        delete this.$el;
+        delete this.el;
     };
 
     var app_router = new App();
