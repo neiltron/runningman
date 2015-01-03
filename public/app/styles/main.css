@@ -339,6 +339,13 @@ header.navigation {
       font-size: 1.2em;
       line-height: 3em;
       color: #eee; }
+      header.navigation .logo h1 img {
+        max-height: 1.6em;
+        position: relative;
+        top: .3em;
+        left: .6em; }
+      header.navigation .logo h1 .runningman_icon {
+        stroke: #f0f; }
   header.navigation .navigation-tools {
     height: 60px;
     display: block;

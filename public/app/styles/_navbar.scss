@@ -39,6 +39,17 @@ header.navigation {
       font-size: 1.2em;
       line-height: 3em;
       color: #eee;
+
+      img {
+        max-height: 1.6em;
+        position: relative;
+        top: .3em;
+        left: .6em;
+      }
+
+      .runningman_icon {
+        stroke: #f0f;
+      }
     }
   }
 
