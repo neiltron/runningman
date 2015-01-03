@@ -9,7 +9,8 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
         pickadate: '../bower_components/pickadate/lib/picker',
-        pickadateDate: '../bower_components/pickadate/lib/picker.date'
+        pickadateDate: '../bower_components/pickadate/lib/picker.date',
+        googlechart: '../bower_components/Backbone.GoogleChart/lib/backbone/GoogleChart',
     }
 });
 

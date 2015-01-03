@@ -38,13 +38,15 @@ define([
             this.start_date = isNaN(start.getTime()) ? undefined : [start.getFullYear(), start.getMonth() + 1, start.getDate()].join('/');
             this.end_date = isNaN(end.getTime()) ? undefined : [end.getFullYear(), end.getMonth() + 1, end.getDate()].join('/');
 
-            this.fetch({
-                reset: true,
-                data: {
-                    start_date: this.start_date,
-                    end_date: this.end_date,
-                }
-            })
+            if (User.get('accesskey')) {
+                this.fetch({
+                    reset: true,
+                    data: {
+                        start_date: this.start_date,
+                        end_date: this.end_date,
+                    }
+                });
+            }
         },
 
         comparator: function (model) {

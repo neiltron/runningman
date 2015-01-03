@@ -34,6 +34,16 @@
 
         <section id='content'></section>
 
+        <script src='http://www.google.com/jsapi' type='text/javascript'></script>
+        <script type="text/javascript">
+          // Load the Visualization API and the piechart package.
+          google.load('visualization', '1', {'packages':['corechart']});
+
+          Date.prototype.getWeek = function() {
+            var onejan = new Date(this.getFullYear(), 0, 1);
+            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+          }
+        </script>
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>

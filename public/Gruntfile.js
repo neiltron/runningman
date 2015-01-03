@@ -172,6 +172,7 @@ module.exports = function (grunt) {
                         'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone',
                         'pickadate': '../../<%= yeoman.app %>/bower_components/pickadate/lib/picker',
                         'pickadateDate': '../../<%= yeoman.app %>/bower_components/pickadate/lib/picker.date',
+                        'googlechart': '../../<%= yeoman.app %>/bower_components/Backbone.GoogleChart/lib/backbone/GoogleChart'
                     },
                     out: '<%= yeoman.dist %>/scripts/main.js',
                     include: 'main',

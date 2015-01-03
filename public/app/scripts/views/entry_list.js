@@ -6,10 +6,11 @@ define([
     'backbone',
     'pickadate',
     'pickadateDate',
+    'googlechart',
     'templates',
     'collections/entry',
     'views/entry'
-], function ($, _, Backbone, pickadate, pickadateDate, JST, Entries, EntryItemView) {
+], function ($, _, Backbone, pickadate, pickadateDate, googlechart, JST, Entries, EntryItemView) {
     'use strict';
 
     var EntryListView = Backbone.View.extend({
@@ -53,6 +54,8 @@ define([
                 _.each(this.collection.models, function (model) {
                     this.addOne(model);
                 }, this);
+
+                this.drawWeeklyAvgGraph();
             } else {
                 this.$el.html(this.emptyTemplate());
             }
@@ -65,6 +68,42 @@ define([
                 end = this.$el.find('#end_date_picker').val();
 
             this.collection.setDateRange(start, end);
+        },
+
+        drawWeeklyAvgGraph: function () {
+            var chartData = [],
+                groupedByDate = _.groupBy(this.collection.models, function(model) {
+                    var groupDate = new Date(model.get('date'));
+                    return groupDate.getWeek() + '/' + groupDate.getFullYear();
+                });
+
+            // get average per week and save it to chartData
+            // in a format that google visualizations will like
+            _.each(groupedByDate, function (week, i) {
+                var avg = _.reduce(week, function(memo, model) {
+                    return memo + model.get('distance');
+                }, 0) / week.length;
+
+                // round the avg to 1 decimal point
+                avg = Math.round(avg * 10) / 10
+
+                chartData.push([i, avg, '#4d7dca'])
+            });
+
+            // reverse order so most recent is on far right
+            // and prepend a header row to label columns
+            chartData.reverse().unshift(['Week', 'Average', { role: 'style' }]);
+            chartData = google.visualization.arrayToDataTable(chartData);
+
+            var view = new Backbone.GoogleChart({
+                chartType: 'ColumnChart',
+                chartArea: {width: '100%', height: '100%'},
+                dataTable: chartData,
+                colors: ['#f0f'],
+                options: { 'title': 'Weeks', 'legend': 'none' },
+            });
+
+            this.$el.find('#weekly_graph').html(view.render().el);
         },
 
         render: function () {
