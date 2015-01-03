@@ -57,5 +57,5 @@ define([
         }
     });
 
-    return new RegisterView();
+    return RegisterView;
 });

@@ -44,11 +44,15 @@ define([
         },
 
         showLoginView: function () {
-            this.showView(LoginView);
+            var loginView = new LoginView();
+
+            this.showView(loginView);
         },
 
         showRegisterView: function () {
-            this.showView(RegisterView);
+            var registerView = new RegisterView();
+
+            this.showView(registerView);
         },
 
         showEntryForm: function (id) {
