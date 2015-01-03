@@ -10,7 +10,8 @@
     "modernizr": "~2.7.1",
     "bourbon": "~4.0.2",
     "neat": "~1.7.0",
-    "almond": "~0.3.0"
+    "almond": "~0.3.0",
+    "pickadate": "~3.5.4"
   },
   "devDependencies": {}
 }

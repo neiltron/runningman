@@ -169,7 +169,9 @@ module.exports = function (grunt) {
                         'templates': '../../.tmp/scripts/templates',
                         'jquery': '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
                         'underscore': '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
-                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone'
+                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone',
+                        'pickadate': '../../<%= yeoman.app %>/bower_components/pickadate/lib/picker',
+                        'pickadateDate': '../../<%= yeoman.app %>/bower_components/pickadate/lib/picker.date',
                     },
                     out: '<%= yeoman.dist %>/scripts/main.js',
                     include: 'main',

@@ -8,7 +8,8 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
-
+        pickadate: '../bower_components/pickadate/lib/picker',
+        pickadateDate: '../bower_components/pickadate/lib/picker.date'
     }
 });
 

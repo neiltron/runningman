@@ -1,9 +1,16 @@
 <thead>
   <tr>
+    <th id='date_range_container' colspan=4>
+      <span>Date Range</span>
+      <input type='text' id='start_date_picker' name='start_date' data-value='<%= start %>'  />
+      <input type='text' id='end_date_picker' name='end_date' data-value='<%= end %>' />
+    </th>
+  </tr>
+  <tr>
     <th>Distance</th>
     <th>Duration</th>
     <th>Avg min/mile</th>
     <th>Date</th>
   </tr>
 </thead>
-<tbody></tbody>
+<tbody class='entries'></tbody>

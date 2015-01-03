@@ -490,15 +490,51 @@ div.empty {
     display: block;
     margin: 2em auto; }
 
-table#entry_list tr th:nth-child(2), table#entry_list tr th:nth-child(3), table#entry_list tr td:nth-child(2), table#entry_list tr td:nth-child(3) {
-  text-align: center; }
-table#entry_list tr th:last-child, table#entry_list tr td:last-child {
-  text-align: right; }
-table#entry_list tr td:last-child span:last-child {
-  display: none; }
-table#entry_list tr:hover td:last-child span:first-child {
-  display: none; }
-table#entry_list tr:hover td:last-child span:last-child {
-  display: inline-block; }
+table#entry_list {
+  margin-top: 0; }
+  table#entry_list #date_range_container input {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    text-align: center; }
+    table#entry_list #date_range_container input:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 40em) {
+      table#entry_list #date_range_container input {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 14.70196%; }
+        table#entry_list #date_range_container input:last-child {
+          margin-right: 0; } }
+  table#entry_list #date_range_container span {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    padding: 0.5em 0;
+    text-align: center; }
+    table#entry_list #date_range_container span:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 40em) {
+      table#entry_list #date_range_container span {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 14.70196%;
+        text-align: left; }
+        table#entry_list #date_range_container span:last-child {
+          margin-right: 0; } }
+  table#entry_list tr th:nth-child(2), table#entry_list tr th:nth-child(3), table#entry_list tr td:nth-child(2), table#entry_list tr td:nth-child(3) {
+    text-align: center; }
+  table#entry_list tr th:last-child, table#entry_list tr td:last-child {
+    text-align: right; }
+  table#entry_list tr td:last-child span:last-child {
+    display: none; }
+  table#entry_list tr:hover td:last-child span:first-child {
+    display: none; }
+  table#entry_list tr:hover td:last-child span:last-child {
+    display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */
