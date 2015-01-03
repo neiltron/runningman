@@ -21,7 +21,7 @@
 
   <p>
     <label></label>
-    <input type='submit' value='Create Entry' />
+    <input type='submit' value='<%= typeof model.id !== 'undefined' ? 'Save' : 'Create' %> Entry' />
     <a href='#cancel' class='cancel'>Cancel</a>
   </p>
 </form>
