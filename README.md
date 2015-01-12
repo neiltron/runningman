@@ -1,3 +1,5 @@
+**This project is just for demo purposes. It won't be maintained.** It was created specifically for an interview project.
+
 # Running Man
 
 Running man is an app with basic functionality for runners to track their runs. The interface is geared towards viewing recent runs and tracking progress trends over time. Users can create an account, login, add/edit/delete entries, and view a date-range-filterable group of entries.
