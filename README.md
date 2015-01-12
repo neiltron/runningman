@@ -8,12 +8,20 @@ It makes use of Backbone, Requirejs, Bourbon/Neat, Pickadate.js,  and the Google
 Running Man assumes you have ruby 2.1.2, mongod, and redis-server running on the local machine.
 
 To install rubygems:
+    
     bundle install
+    
 Install npm packages:
+    
     npm install
+    
 Install bower packages:
+    
     bower install
+    
 Run up the app:
+    
     foreman start
+    
 
 There is a rake script to load fake data for a demo user. To use it, register a test user and then in terminal run `rake db:fakedata`. This will add hundreds of random entries for the first user in the database.
